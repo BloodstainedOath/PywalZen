@@ -1,0 +1,150 @@
+:root {
+  --zen-primary-color: #d9d9d9 !important;
+  --zen-colors-primary: var(--tab-loading-fill) !important;
+  --zen-colors-secondary: var(--tab-loading-fill) !important;
+  --toolbarbutton-icon-fill: var(--tab-loading-fill) !important;
+  --zen-transition-speed: 0.3s;  /* Animation speed for theme transitions */
+}
+
+/* Force theme override when enabled */
+:root:has(#theme-PywalZen[uc-pywalzen-force_theme="true"]) {
+  color-scheme: light dark !important;
+  --lwt-accent-color-inactive: var(--lwt-accent-color) !important;
+  --lwt-text-color: var(--zen-colors-primary) !important;
+  --lwt-text-color-inactive: var(--zen-colors-primary) !important;
+  --toolbar-color: var(--zen-colors-primary) !important;
+  --toolbar-field-color: var(--zen-colors-primary) !important;
+  --toolbar-field-focus-color: var(--zen-colors-primary) !important;
+  --toolbar-field-border-color: transparent !important;
+  --toolbar-field-focus-border-color: transparent !important;
+}
+
+/* Apply transition speed based on preference */
+:root:has(#theme-PywalZen[uc-pywalzen-transition_speed="none"]) {
+  --zen-transition-speed: 0s !important;
+}
+
+:root:has(#theme-PywalZen[uc-pywalzen-transition_speed="fast"]) {
+  --zen-transition-speed: 0.15s !important;
+}
+
+:root:has(#theme-PywalZen[uc-pywalzen-transition_speed="normal"]) {
+  --zen-transition-speed: 0.3s !important;
+}
+
+:root:has(#theme-PywalZen[uc-pywalzen-transition_speed="slow"]) {
+  --zen-transition-speed: 0.5s !important;
+}
+
+/* Toggle enhanced focus indicators */
+:root:has(#theme-PywalZen[uc-pywalzen-enhance_focus="true"]) :focus-visible {
+  outline: 2px solid var(--zen-colors-primary, #0a84ff) !important;
+  outline-offset: 2px !important;
+}
+
+:root:has(#theme-PywalZen[uc-pywalzen-enhance_focus="false"]) :focus-visible {
+  outline: var(--focus-outline, 1px dotted) !important;
+  outline-offset: var(--focus-outline-offset, 1px) !important;
+}
+
+/* Default theme settings */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="default"]) {
+  --zen-colors-tertiary: var(--lwt-accent-color) !important;
+  --zen-main-browser-background: var(--lwt-accent-color) !important;
+  --zen-themed-toolbar-bg: var(--lwt-accent-color) !important;
+  --arrowpanel-background: var(--lwt-accent-color) !important;
+}
+
+/* Dark theme settings */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="dark"]) {
+  --zen-colors-tertiary: color-mix(in srgb, var(--lwt-accent-color), black 25%) !important;
+  --zen-main-browser-background: color-mix(in srgb, var(--lwt-accent-color), black 25%) !important;
+  --zen-themed-toolbar-bg: color-mix(in srgb, var(--lwt-accent-color), black 25%) !important;
+  --arrowpanel-background: color-mix(in srgb, var(--lwt-accent-color), black 25%) !important;
+}
+
+/* Darker theme settings */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="darker"]) {
+  --zen-colors-tertiary: color-mix(in srgb, var(--lwt-accent-color), black 50%) !important;
+  --zen-main-browser-background: color-mix(in srgb, var(--lwt-accent-color), black 50%) !important;
+  --zen-themed-toolbar-bg: color-mix(in srgb, var(--lwt-accent-color), black 50%) !important;
+  --arrowpanel-background: color-mix(in srgb, var(--lwt-accent-color), black 50%) !important;
+}
+
+/* Yet darker theme settings */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="yet-darker"]) {
+  --zen-colors-tertiary: color-mix(in srgb, var(--lwt-accent-color), black 75%) !important;
+  --zen-main-browser-background: color-mix(in srgb, var(--lwt-accent-color), black 75%) !important;
+  --zen-themed-toolbar-bg: color-mix(in srgb, var(--lwt-accent-color), black 75%) !important;
+  --arrowpanel-background: color-mix(in srgb, var(--lwt-accent-color), black 75%) !important;
+}
+
+/* Pitch black theme settings */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="pitch-black"]) {
+  --zen-colors-tertiary: black !important;
+  --zen-main-browser-background: black !important;
+  --zen-themed-toolbar-bg: black !important;
+  --arrowpanel-background: black !important;
+}
+
+/* Light theme settings */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="light"]) {
+  --zen-colors-tertiary: color-mix(in srgb, var(--lwt-accent-color), white 25%) !important;
+  --zen-main-browser-background: color-mix(in srgb, var(--lwt-accent-color), white 25%) !important;
+  --zen-themed-toolbar-bg: color-mix(in srgb, var(--lwt-accent-color), white 25%) !important;
+  --arrowpanel-background: color-mix(in srgb, var(--lwt-accent-color), white 25%) !important;
+}
+
+/* Lighter theme settings */
+:root:has(#theme-PywalZen[uc-pywalzen-darkness="lighter"]) {
+  --zen-colors-tertiary: color-mix(in srgb, var(--lwt-accent-color), white 50%) !important;
+  --zen-main-browser-background: color-mix(in srgb, var(--lwt-accent-color), white 50%) !important;
+  --zen-themed-toolbar-bg: color-mix(in srgb, var(--lwt-accent-color), white 50%) !important;
+  --arrowpanel-background: color-mix(in srgb, var(--lwt-accent-color), white 50%) !important;
+}
+
+/* Apply common styles to URL bar background for each theme */
+:root:has(#theme-PywalZen) #urlbar[breakout-extend="true"] > #urlbar-background {
+  background: var(--zen-main-browser-background) !important;
+  transition: background var(--zen-transition-speed) ease-in-out !important;
+}
+
+/* Direct application of theme colors to browser elements */
+:root:has(#theme-PywalZen) {
+  --toolbar-bgcolor: var(--zen-themed-toolbar-bg) !important;
+  --toolbar-field-background-color: var(--zen-colors-tertiary) !important;
+  --toolbar-field-focus-background-color: var(--zen-main-browser-background) !important;
+  --chrome-background-color: var(--zen-main-browser-background) !important;
+  --chrome-secondary-background-color: var(--zen-main-browser-background) !important;
+  --popup-color: var(--zen-colors-primary) !important;
+  --popup-background-color: var(--zen-main-browser-background) !important;
+}
+
+#urlbar:not([focused="true"]):not([breakout-extend="true"]) > #urlbar-background {
+  background: color-mix(in srgb, light-dark(#fff, var(--zen-colors-secondary)) 35%, transparent 65%) !important;
+  transition: background var(--zen-transition-speed) ease-in-out !important;
+}
+
+#commonDialogWindow {
+  background-color: var(--zen-main-browser-background, black) !important;
+  transition: background-color var(--zen-transition-speed) ease-in-out !important;
+}
+
+/* Additional styling for better visibility of toolbar items */
+toolbarbutton,
+.toolbarbutton-1 {
+  fill: var(--zen-colors-primary) !important;
+  color: var(--zen-colors-primary) !important;
+}
+
+/* Fix for potential Firefox toolbar issues */
+#nav-bar {
+  background-color: var(--zen-themed-toolbar-bg) !important;
+}
+
+/* Ensure menu popups use the right colors */
+panel,
+.panel-arrowcontent {
+  background-color: var(--zen-main-browser-background) !important;
+  color: var(--zen-colors-primary) !important;
+}
